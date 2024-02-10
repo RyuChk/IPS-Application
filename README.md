@@ -8,7 +8,9 @@ In-Door Positioning System application aim to help user locate and navigat insid
 2. IPS-RSSI: RSSI related functionality
     - RSSI gRPC: Handle saving RSSI data for model training and predict user location
 3. IPS-BFF: Backend for Frontend where transform in comming RestAPI request to gRPC request
-4. IPS-Protobuf: Protobuf definition repository where each gRPC service will refer their service definition from using gitsubmodule.
+    - BFF Api: Act as proxy between front-end and back-end
+    - Realtime Api: Broadcasting online user to all admin account
+5. IPS-Protobuf: Protobuf definition repository where each gRPC service will refer their service definition from using gitsubmodule.
 
 
 ## High level design
@@ -16,6 +18,7 @@ In-Door Positioning System application aim to help user locate and navigat insid
 Link : https://whimsical.com/high-level-design-diagram-AP7JVpNYEM7iW2jWEGkKRs 
 
 ## Flow Design
+Link : https://whimsical.com/flow-diagram-Qxd2K5HtiKeHwsAzKumH2q
 
 ### User get coordinate
 User getting current coordinate to display on to map. During this process we will update user presence to presence service which will be save to redis database.

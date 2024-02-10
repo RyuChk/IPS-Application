@@ -39,7 +39,7 @@ This flow is to broadcast an online user list to all admin users for display of 
 1. When the user gets the location RSSI service will send the result to the presence service that will save the information with timestamp to Redis. The TTL of the keys will be set slightly greater than the polling rate of get coordinate.
 2. The application will create an SSE connection with real-time service to listen to online user broadcasting.
 3. Realtime service will constantly poll online users from the presence service where the presence service will scan the Redis database for existing records.
-4. 
+
 <img width="613" alt="image" src="https://github.com/RyuChk/IPS-Application/assets/89927721/7565492d-edd0-46fe-a934-7394ca4c7593">
 
 

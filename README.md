@@ -4,17 +4,17 @@ In-Door Positioning System application aims to help users locate and navigate in
 ## Repositories description
 1. IPS-MAP: Map service which handles map related functionality
     - Map gRPC: Map service main handler
-    - Presence gRPC: Presence service handle recording online user
+    - User Tracker gRPC: Track online user
 2. IPS-RSSI: RSSI related functionality
-    - RSSI gRPC: Handle saving RSSI data for model training and predict user location
+    - Data Collection gRPC: Collect data for train model
+    - User Manager gRPC: Manage user functionality
 3. IPS-BFF: Backend for Frontend where transform in coming RestAPI request to gRPC request
     - BFF Api: Act as proxy between front-end and back-end
-    - Realtime API: Broadcasting online users to all admin account
 5. IPS-Protobuf: Protobuf definition repository where each gRPC service will refer their service definition from using the git submodule.
 
 
 ## High level design
-![image](https://github.com/RyuChk/IPS-Application/assets/89927721/a128eb00-80cf-4ba1-8d20-0adb020e3595)
+<img width="1211" alt="image" src="https://github.com/RyuChk/IPS-Application/assets/89927721/d678ed68-e052-45cb-96b9-73b53e1836a1">
 Link : https://whimsical.com/high-level-design-diagram-AP7JVpNYEM7iW2jWEGkKRs 
 
 ## Flow Design
@@ -25,20 +25,19 @@ The user gets current coordinates to display on to map. During this process, we 
 
 1. Application(Client) starts web socket connection with BFF(Backend for frontend) and constantly polls requests to predict the current location from RSSI information.
 2. BFF will get user information using Access Token that is bound in the request header.
-3. BFF passes user information and requests to RSSI service.
-4. RSSI Service will then send the position to model service to predict user location.
-5. After the model service predicts user location RSSI receives the result and saves it to Mongodb to later be analyzed.
-6. RSSI will send the user location to the presence service to be stored in Redis for an online heartbeat.
+3. BFF passes user information and requests to User manager service.
+4. User manager service will then send the position to prediction service to predict user location.
+5. After the prediction service predicts and response location user manager service will then saves result to Mongodb to later be analyzed.
+6. User manager will send the user location to the user tracking service to be stored in Redis for an user online tracking.
 7. Return prediction result to the Application
 
-<img width="812" alt="image" src="https://github.com/RyuChk/IPS-Application/assets/89927721/2b0fda8d-c50c-46d7-bf28-dc388025c6fa">
+<img width="554" alt="image" src="https://github.com/RyuChk/IPS-Application/assets/89927721/76e15d47-4a77-482a-ad7d-f3f854226687">
 
 ### Online user flow
 This flow is to broadcast an online user list to all admin users for display of other user locations in the application.
 
-1. When the user gets the location RSSI service will send the result to the presence service that will save the information with timestamp to Redis. The TTL of the keys will be set slightly greater than the polling rate of get coordinate.
-2. The application will create an SSE connection with real-time service to listen to online user broadcasting.
-3. Realtime service will constantly poll online users from the presence service where the presence service will scan the Redis database for existing records.
+1. When the user gets the location the user manager service will send the result to the user tracking service and save the information with timestamp to Redis. The TTL of the keys will be set slightly greater than the polling rate of get coordinate.
+2. The application will set polling interval to fetch online user from server.
 
 <img width="613" alt="image" src="https://github.com/RyuChk/IPS-Application/assets/89927721/7565492d-edd0-46fe-a934-7394ca4c7593">
 

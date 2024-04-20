@@ -1,12 +1,12 @@
 [submodule "rssi-service"]
 	path = rssi-service
 	url = https://github.com/RyuChk/IPS-RSSI
-[submodule "map-service"]
-	path = map-service
-	url = https://github.com/RyuChk/IPS-MAP
 [submodule "bff-service"]
 	path = bff-service
 	url = https://github.com/RyuChk/IPS-BFF
-[submodule "protobuf-definition-repo"]
-	path = protobuf-definition-repo
-	url = https://github.com/RyuChk/ips-protobuf
+[submodule "map-service"]
+	path = map-service
+	url = https://github.com/RyuChk/IPS-MAP
+[submodule "prediction-service"]
+	path = prediction-service
+	url = https://github.com/RyuChk/IPS-Prediction

@@ -58,6 +58,57 @@ Objective:
 The position has been calculated from the RSSI value from each of the access points in the building, calculated with the classification model.
 The model also made from the experiment that we have to conduct it ourselves.
 
+Applications:
+
+1. Main IPS Application
+
+   This application is for tracking users in target building having two main features.
+   MyMap is to track user in the building on the map, it will identify building, floor and label of the location.
+   Overwatch (For Admin Only) is to track all active users in the selected building and floor.
+
+2. Experimental Application
+
+   This application is for collecting data in experiment phase used to train model (will be used in prediction service) having three modes.
+   Single Mode is to collect one record of RSSI data from target accesss points.
+   Continuous Mode is to keep collect data until user want to stop.
+   Custom Mode is to keep collect data until it reach record-limit which can be define by user.
+
+Services:
+
+1. User Manager Service
+
+   This service handles user-related functionality such as predicting user location. For
+   predicting user location, the user manager service needs to communicate with the
+   prediction service which runs a machine learning model for predicting the user
+   location.
+
+2. Backend For Frontend Service
+
+   This service'sobjective is to validate the user access, retrieveuser information using
+   the access token, and transform the Rest API request to gRPC request.
+
+3. User Tracking Service
+
+   User tracking service will handle retrieving currentonline users and updating online
+   user status. After the user manager service receives the prediction result from the
+   prediction service, the user manager services will send an online heartbeat to the
+   user tracking service to update the user's presence.
+
+4. Map Service
+
+   Map service handles map-related functionality like the list of building registered in
+   the system until the list of room in each building registered in the floor that user
+   is eligible to receive. This service also includes floor, room and building registration.
+
+5. Data Collection Service
+
+   The main objective of data collection service is to process the raw information
+   from experiment applications into useable data for training the model.
+
+6. Prediction Service
+
+   This service is hosting the machine learning model and will predict user’s coordinate from incoming getting coordinate request and communicate with the user manager service.
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
@@ -102,7 +153,7 @@ Installing and setting up application.
 ## Contact
 
 - Naphat Chaisang - puninw1500@gmail.com
-- Thanwa - email@example.com
+- Thanwa Chokporntaveesuk - email@example.com
 
 Project Link: [https://github.com/RyuChk/IPS-Application.git](https://github.com/RyuChk/IPS-Application.git)
 

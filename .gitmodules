@@ -10,3 +10,6 @@
 [submodule "prediction-service"]
 	path = prediction-service
 	url = https://github.com/RyuChk/IPS-Prediction
+[submodule "client"]
+	path = client
+	url = https://github.com/RyuChk/IPS-Client.git

@@ -1,15 +1,21 @@
 [submodule "rssi-service"]
 	path = rssi-service
-	url = https://github.com/RyuChk/IPS-RSSI
+	url = https://github.com/RyuChk/IPS-RSSI.git
 [submodule "bff-service"]
 	path = bff-service
-	url = https://github.com/RyuChk/IPS-BFF
+	url = https://github.com/RyuChk/IPS-BFF.git
 [submodule "map-service"]
 	path = map-service
-	url = https://github.com/RyuChk/IPS-MAP
+	url = https://github.com/RyuChk/IPS-MAP.git
 [submodule "prediction-service"]
 	path = prediction-service
-	url = https://github.com/RyuChk/IPS-Prediction
+	url = https://github.com/RyuChk/IPS-Prediction.git
 [submodule "client"]
 	path = client
 	url = https://github.com/RyuChk/IPS-Client.git
+[submodule "protobuf-definition-repo"]
+	path = protobuf-definition-repo
+	url = https://github.com/RyuChk/ips-protobuf.git
+[submodule "experiment-client"]
+	path = experiment-client
+	url = https://github.com/ZecretBone/IPS-Client-Experiment.git

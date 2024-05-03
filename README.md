@@ -153,7 +153,7 @@ Installing and setting up application.
 ## Contact
 
 - Naphat Chaisang - puninw1500@gmail.com
-- Thanwa Chokporntaveesuk - email@example.com
+- Thanwa Chokporntaveesuk - rewapk@gmail.com
 
 Project Link: [https://github.com/RyuChk/IPS-Application.git](https://github.com/RyuChk/IPS-Application.git)
 

@@ -34,7 +34,7 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
       <ul>
-        <li><a href="#building application">Build Application</a></li>
+        <li><a href="#building-application">Build Application</a></li>
       </ul>
     </li>
     <li><a href="#contact">Contact</a></li>

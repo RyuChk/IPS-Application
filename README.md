@@ -33,6 +33,9 @@
       <ul>
         <li><a href="#installation">Installation</a></li>
       </ul>
+      <ul>
+        <li><a href="#building application">Build Application</a></li>
+      </ul>
     </li>
     <li><a href="#contact">Contact</a></li>
 
@@ -146,6 +149,40 @@ Installing and setting up application.
 1. Clone the repo
    ```sh
    git clone https://github.com/RyuChk/IPS-Application.git
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Building Application
+
+Installing and setting up main ips-application.
+
+1. Install Flutter
+
+   <a href="https://docs.flutter.dev/get-started/install"><strong>Flutter</strong></a>
+
+2. Clone Project
+
+   ```sh
+   git clone https://github.com/RyuChk/IPS-Client/tree/ab8b86f4e2ac2546af025bcbb470d42b4ae8511a
+   ```
+
+3. Install Dependencies
+
+   ```sh
+   flutter pub get
+   ```
+
+4. Run Application
+
+   ```sh
+   flutter run
+   ```
+
+5. Build APK
+
+   ```sh
+   flutter build apk
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
